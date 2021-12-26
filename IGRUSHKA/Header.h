@@ -61,15 +61,15 @@ public:
 		entity3.start_pos(2400);
 	}
 	void change_angle() {
-		Whiskey_angle = -acceleration * 2;
+		Whiskey_angle = -acceleration;
 
 	}
 
 	void Jump() {
 
 		acceleration += 60;
-		if (acceleration > 40) {
-			acceleration = 40;
+		if (acceleration > 60) {
+			acceleration = 60;
 		}
 	}
 	void INIT_ENTITIES() {
