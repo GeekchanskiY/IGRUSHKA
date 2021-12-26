@@ -10,6 +10,7 @@ public:
 		void Generate_pos_y(int prev_pos) {
 			int randoM_lengt = rand() % 200 + 1;
 			int is_positive = rand() % 2 + 1;
+			std::cout << is_positive;
 			pos_y = rand() % 100 + 1;
 			if (is_positive == 1) {
 				if (pos_y + randoM_lengt <= -125) {
@@ -70,8 +71,8 @@ public:
 	}
 	void create_entities() {
 		entity1.start_pos(1400);
-		entity2.start_pos(1800);
-		entity3.start_pos(2200);
+		entity2.start_pos(1900);
+		entity3.start_pos(2400);
 	}
 	void change_angle() {
 		Whiskey_angle = -acceleration * 8;
