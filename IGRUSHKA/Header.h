@@ -17,7 +17,7 @@ public:
 			pos_x -= 5;
 			if (pos_x >= 100 && pos_x <= 280) {
 				std::cout << "I CAN KILL WOAHAHAHAH \n";
-				if (Whiskey_y >= pos_y + 100 || Whiskey_y <= pos_y - 100) {
+				if (Whiskey_y <= pos_y + 100 || Whiskey_y >= pos_y - 100) {
 					std::cout << "I KILL \n";
 				}
 			}
@@ -45,8 +45,8 @@ public:
 		if (acceleration > 0) {
 			acceleration -= 10;
 		}
-		if (acceleration <= 20) {
-			acceleration = -15;
+		if (acceleration <= 5) {
+			acceleration = -5;
 			std::cout << "IM FALLING AAAAAAA";
 		}
 		Whiskey_y -= acceleration;
