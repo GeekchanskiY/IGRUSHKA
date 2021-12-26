@@ -5,10 +5,12 @@
 #include <Windows.h>
 #include "Header.h"
 
+APP app;
+
 using namespace sf;
 
-const int Width = 780;
-const int Height = 900;
+const int Width = app.ScreenWidth;
+const int Height = app.ScreenHeight;
 int Speed = 5;
 
 void Key();
@@ -19,9 +21,9 @@ Image wiskey, kristal, barrier;
 Texture texture, texturefon, texturetruba;
 Sprite bottle, truba, fon;
 
+
 int main()
 {
-	APP app;
 	window.setFramerateLimit(60);
 
 	//загрузка картинки бутылки
@@ -61,7 +63,8 @@ int main()
 		// Отрисовка окна
 		window.display();
 		window.clear({ 255, 255, 255 });
-
+		
+		bottle.setPosition(app.Whiskey_X, app.Whiskey_y);
 		window.draw(fon);
 		window.draw(bottle);
 	}
@@ -71,6 +74,6 @@ int main()
 
 void Key() {
 	if (Keyboard::isKeyPressed(Keyboard::Space)) {
-		bottle.move(Speed, 0);
+		app.Jump();
 	}
 }
