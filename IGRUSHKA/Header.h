@@ -27,8 +27,8 @@ public:
 
 	};
 	bool IsAlive = true, IsGameRuns = false;
-	const int ScreenHeight = 650, ScreenWidth = 480, Whiskey_X = 260;
-	int Whiskey_y = 0;
+	const int ScreenHeight = 650, ScreenWidth = 480, Whiskey_X = 100;
+	int Whiskey_y = 650;
 	int Whiskey_angle = 0;
 	int acceleration = 0;
 	int counter = 0;
