@@ -18,7 +18,7 @@ public:
 			if (pos_x >= 100 && pos_x <= 280) {
 				std::cout << "I CAN KILL WOAHAHAHAH \n";
 				if (Whiskey_y <= pos_y + 100 || Whiskey_y >= pos_y - 100) {
-					std::cout << "I KILL \n";
+					std::cout << "\n" << pos_y + 100 << "\n" << pos_y - 100 << "\n" << Whiskey_y;
 				}
 			}
 			if (pos_x <= -200) {
