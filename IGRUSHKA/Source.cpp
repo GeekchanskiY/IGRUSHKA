@@ -38,9 +38,8 @@ int main()
 	bottle.setTexture(texture);
 	bottle.setPosition(50, 50);
 
-	//изменение угла бутылки
-	bottle.setRotation(-45);
-	bottle.rotate(45);
+	//дефолт угла бутылки
+	bottle.setRotation(-30);
 
 	//загрузка картинки фона
 	kristal.loadFromFile("fon.png");
@@ -71,6 +70,8 @@ int main()
 		window.draw(fon);
 		window.draw(bottle);
 		window.draw(truba);
+
+		bottle.setRotation(app.Whiskey_angle);
 	}
 
 	return 0;
