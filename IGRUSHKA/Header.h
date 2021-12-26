@@ -2,7 +2,7 @@ class APP {
 public:
 	class Entity {
 	public:
-		const int width = 30, height = 2560, spacing = 1280 / 5;
+		const int width = 30, height = 2300, spacing = 650 / 5;
 		int pos_x = 720, pos_y = 640;
 
 		void Generate_pos_y(int prev_pos) {
@@ -28,7 +28,7 @@ public:
 	};
 	bool IsAlive = true, IsGameRuns = false;
 	const int ScreenHeight = 650, ScreenWidth = 480, Whiskey_X = 260;
-	int Whiskey_y = 640;
+	int Whiskey_y = 0;
 	int Whiskey_angle = 0;
 	int acceleration = 0;
 	int counter = 0;
@@ -39,7 +39,13 @@ public:
 		if (acceleration >= 0) {
 			acceleration -= 2;
 		}
-		Whiskey_y += acceleration;
+		Whiskey_y -= acceleration;
+		if (Whiskey_y < 0) {
+			Whiskey_y = 5;
+		}
+		if (Whiskey_y >= 640) {
+			Whiskey_y = 640;
+		}
 		counter++;
 		if (counter == 300) {
 			switch (current_entity_last)
@@ -67,9 +73,9 @@ public:
 
 	void Jump() {
 
-		acceleration += 30;
-		if (acceleration > 30) {
-			acceleration = 30;
+		acceleration += 10;
+		if (acceleration > 10) {
+			acceleration = 10;
 		}
 		std::cout << acceleration;
 	}
