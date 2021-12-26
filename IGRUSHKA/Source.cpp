@@ -38,6 +38,10 @@ int main()
 	bottle.setTexture(texture);
 	bottle.setPosition(50, 50);
 
+	//изменение угла бутылки
+	bottle.setRotation(-45);
+	bottle.rotate(45);
+
 	//загрузка картинки фона
 	kristal.loadFromFile("fon.png");
 	texturefon.loadFromImage(kristal);
