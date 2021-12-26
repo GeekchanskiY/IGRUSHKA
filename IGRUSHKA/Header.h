@@ -1,4 +1,3 @@
-#pragma once
 class APP {
 public:
     bool IsAlive = true, IsGameRuns = false;
