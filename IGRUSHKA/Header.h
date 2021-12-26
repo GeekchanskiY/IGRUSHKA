@@ -16,7 +16,10 @@ public:
 
 		void tick_move(int Whiskey_y) {
 			pos_x -= 5;
-			if (pos_x >= 69 && pos_x <= 187) {
+			if (Whiskey_y == 50 || Whiskey_y == 600) {
+				Killed = true;
+			}
+			else if (pos_x >= 69 && pos_x <= 187) {
 				if (Whiskey_y <= pos_y + 550 || Whiskey_y >= pos_y + 750) {
 					Killed = true;
 				}

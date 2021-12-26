@@ -61,7 +61,7 @@ int main()
 		while (window.pollEvent(event))
 		{
 			// Пользователь нажал на «крестик» и хочет закрыть окно?
-			if (event.type == Event::Closed)
+			if (event.type == Event::Closed || app.IsAlive == false)
 			{
 				// тогда закрываем его
 				window.close();
