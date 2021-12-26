@@ -4,6 +4,7 @@ public:
 	class Entity {
 	public:
 		const int width = 120, height = 2300, spacing = 650 / 5;
+		bool Killed = false;
 		int pos_x = 1400, pos_y = -325;
 		void start_pos(int set_pos_x) {
 			pos_x = set_pos_x;
@@ -16,9 +17,8 @@ public:
 		void tick_move(int Whiskey_y) {
 			pos_x -= 5;
 			if (pos_x >= 69 && pos_x <= 187) {
-				std::cout << "I CAN KILL WOAHAHAHAH \n";
 				if (Whiskey_y <= pos_y + 550 || Whiskey_y >= pos_y + 750) {
-					std::cout << "\n" << pos_y + 100 << "\n" << pos_y - 100 << "\n" << Whiskey_y;
+					Killed = true;
 				}
 			}
 			if (pos_x <= -200) {
@@ -30,6 +30,7 @@ public:
 		void die() {
 			pos_x = 1400;
 		}
+		
 
 	};
 	bool IsAlive = true, IsGameRuns = false;
@@ -59,6 +60,10 @@ public:
 		entity1.tick_move(Whiskey_y);
 		entity2.tick_move(Whiskey_y);
 		entity3.tick_move(Whiskey_y);
+		if (entity1.Killed == true || entity2.Killed == true || entity3.Killed == true) {
+			IsAlive = false;
+			IsGameRuns = false;
+		}
 		
 	}
 	void create_entities() {
