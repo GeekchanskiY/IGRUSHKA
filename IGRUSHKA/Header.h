@@ -8,26 +8,8 @@ public:
 			pos_x = set_pos_x;
 		}
 		void Generate_pos_y(int prev_pos) {
-			int randoM_lengt = rand() % 200 + 1;
-			int is_positive = rand() % 2 + 1;
-			std::cout << is_positive;
-			pos_y = rand() % 100 + 1;
-			if (is_positive == 1) {
-				if (pos_y + randoM_lengt <= -125) {
-					pos_y = prev_pos + randoM_lengt;
-				}
-				else {
-					pos_y = prev_pos - randoM_lengt;
-				}
-			}
-			else {
-				if (pos_y + randoM_lengt >= -700) {
-					pos_y = prev_pos - randoM_lengt;
-				}
-				else {
-					pos_y = prev_pos - randoM_lengt;
-				}
-			}
+			int randoM_lengt = rand() % 400 + 1;
+			pos_y = -100 - randoM_lengt;
 		}
 
 		void tick_move(int id) {
@@ -81,9 +63,9 @@ public:
 
 	void Jump() {
 
-		acceleration += 10;
-		if (acceleration > 10) {
-			acceleration = 10;
+		acceleration += 20;
+		if (acceleration > 20) {
+			acceleration = 20;
 		}
 	}
 	void INIT_ENTITIES() {
