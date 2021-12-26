@@ -2,32 +2,42 @@ class APP {
 public:
 	class Entity {
 	public:
-		const int width = 30, height = 2300, spacing = 650 / 5;
-		int pos_x = 720, pos_y = 640;
+		const int width = 120, height = 2300, spacing = 650 / 5;
+		int pos_x = 1400, pos_y = -325;
 
 		void Generate_pos_y(int prev_pos) {
+			int randoM_lengt = rand() % 200 + 1;
 			int is_positive = rand() % 2 + 1;
 			pos_y = rand() % 100 + 1;
 			if (is_positive == 1) {
-				return;
+				if (pos_y + randoM_lengt <= -125) {
+					pos_y = prev_pos + randoM_lengt;
+				}
+				else {
+					pos_y = prev_pos - randoM_lengt;
+				}
 			}
 			else {
-				pos_y = -pos_y;
-				return;
+				if (pos_y + randoM_lengt >= -700) {
+					pos_y = prev_pos - randoM_lengt;
+				}
+				else {
+					pos_y = prev_pos - randoM_lengt;
+				}
 			}
 		}
 
 		void tick_move() {
 			pos_x -= 5;
 		}
-
+		// refreshes pos x and generates new pos y
 		void die() {
-
+			pos_x = 1400;
 		}
 
 	};
 	bool IsAlive = true, IsGameRuns = false;
-	const int ScreenHeight = 650, ScreenWidth = 480, Whiskey_X = 100;
+	const int ScreenHeight = 650, ScreenWidth = 1200, Whiskey_X = 100;
 	int Whiskey_y = 325;
 	int Whiskey_angle = 0;
 	int acceleration = 0;
@@ -40,14 +50,18 @@ public:
 			acceleration -= 2;
 		}
 		Whiskey_y -= acceleration;
-		if (Whiskey_y < 0) {
+		if (Whiskey_y < 5) {
 			Whiskey_y = 5;
 		}
-		if (Whiskey_y >= 640) {
-			Whiskey_y = 640;
+		if (Whiskey_y >= 635) {
+			Whiskey_y = 635;
 		}
+		change_angle();
+		entity1.tick_move();
+		entity2.tick_move();
+		entity3.tick_move();
 		counter++;
-		if (counter == 300) {
+		if (counter == 360) {
 			switch (current_entity_last)
 			{
 			default:
@@ -68,7 +82,7 @@ public:
 	}
 
 	void change_angle() {
-		Whiskey_angle == acceleration * 30;
+		Whiskey_angle = -acceleration;
 	}
 
 	void Jump() {
@@ -78,6 +92,9 @@ public:
 			acceleration = 10;
 		}
 		std::cout << acceleration;
+	}
+	void INIT_ENTITIES() {
+		entity1.Generate_pos_y(-325);
 	}
 
 };
