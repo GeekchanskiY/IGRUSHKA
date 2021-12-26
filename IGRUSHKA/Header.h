@@ -82,7 +82,8 @@ public:
 	}
 
 	void change_angle() {
-		Whiskey_angle = -acceleration;
+		Whiskey_angle = -acceleration * 5;
+
 	}
 
 	void Jump() {
