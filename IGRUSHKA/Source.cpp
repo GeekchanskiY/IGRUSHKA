@@ -24,8 +24,10 @@ Sprite bottle, truba1, truba2, truba3, fon;
 
 int main()
 {
+	int speed = 60, presscounter = 0;
+
 	//количество кадров в секунду 
-	window.setFramerateLimit(60);
+	window.setFramerateLimit(speed);
 
 	//загрузка картинки преграды
 	barrier.loadFromFile("bochki.png");
@@ -76,6 +78,14 @@ int main()
 		// Отрисовка окна
 		window.display();
 		window.clear({ 255, 255, 255 });
+		presscounter += 1;
+
+		if (presscounter == 300) {
+			presscounter = 0;
+			speed++;
+			window.setFramerateLimit(speed);
+			std::cout << speed;
+		}
 		
 		bottle.setPosition(app.Whiskey_X, app.Whiskey_y);
 		truba1.setPosition(app.entity1.pos_x, app.entity1.pos_y);
