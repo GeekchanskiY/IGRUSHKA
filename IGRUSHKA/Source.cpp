@@ -64,11 +64,10 @@ int main()
 				// тогда закрываем его
 				window.close();
 			}
-
+			//отслеживание отжатия
 			else if (event.type == sf::Event::KeyReleased &&
 				event.key.code == sf::Keyboard::Space)
 			{
-				std::cerr << "switch\n";
 				app.Jump();
 			}
 		}
