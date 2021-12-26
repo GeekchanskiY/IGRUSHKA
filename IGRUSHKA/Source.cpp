@@ -37,10 +37,10 @@ int main()
 	fon.setPosition(0,0);
 
 	//загрузка картинки преграды
-	kristal.loadFromFile("fon.png");
-	texturefon.loadFromImage(kristal);
-	fon.setTexture(texturefon);
-	fon.setPosition(0, 0);
+	barrier.loadFromFile("fon.png");
+	texturefon.loadFromImage(barrier);
+	truba.setTexture(texturetruba);
+	truba.setPosition(0, 0);
 
 
 	// √лавный цикл приложени€. ¬ыполн€етс€, пока открыто окно
