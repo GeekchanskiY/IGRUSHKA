@@ -5,7 +5,7 @@ public:
     int Whiskey_y = 640;
     int Whiskey_angle = 0;
     int acceleration = 0;
-
+    int test = 1488;
 
     void Tick() {
         if (acceleration >= 0) {
