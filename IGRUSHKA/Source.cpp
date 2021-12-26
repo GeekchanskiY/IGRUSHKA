@@ -26,6 +26,12 @@ int main()
 {
 	window.setFramerateLimit(60);
 
+	//загрузка картинки преграды
+	barrier.loadFromFile("bochka2.png");
+	texturefon.loadFromImage(barrier);
+	truba.setTexture(texturetruba);
+	truba.setPosition(0, 0);
+
 	//загрузка картинки бутылки
 	wiskey.loadFromFile("wiskey.png");
 	texture.loadFromImage(wiskey);
@@ -37,13 +43,6 @@ int main()
 	texturefon.loadFromImage(kristal);
 	fon.setTexture(texturefon);
 	fon.setPosition(0,0);
-
-	//загрузка картинки преграды
-	barrier.loadFromFile("fon.png");
-	texturefon.loadFromImage(barrier);
-	truba.setTexture(texturetruba);
-	truba.setPosition(0, 0);
-
 
 	// Главный цикл приложения. Выполняется, пока открыто окно
 	while (window.isOpen())
@@ -67,6 +66,7 @@ int main()
 		bottle.setPosition(app.Whiskey_X, app.Whiskey_y);
 		window.draw(fon);
 		window.draw(bottle);
+		window.draw(truba);
 	}
 
 	return 0;
