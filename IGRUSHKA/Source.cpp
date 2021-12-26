@@ -19,18 +19,20 @@ void Key();
 RenderWindow window(VideoMode(Width, Height), "Flappy Wiskey");
 Image wiskey, kristal, barrier;
 Texture texture, texturefon, texturetruba;
-Sprite bottle, truba, fon;
+Sprite bottle, truba1, truba2, truba3, fon;
 
 
 int main()
 {
+	//количество кадров в секунду 
 	window.setFramerateLimit(60);
 
 	//загрузка картинки преграды
 	barrier.loadFromFile("bochki.png");
 	texturetruba.loadFromImage(barrier);
-	truba.setTexture(texturetruba);
-	truba.setPosition(250, -300);
+	truba1.setTexture(texturetruba);
+	truba2.setTexture(texturetruba);
+	truba3.setTexture(texturetruba);
 
 	//загрузка картинки бутылки
 	wiskey.loadFromFile("wiskey.png");
@@ -47,6 +49,8 @@ int main()
 	fon.setTexture(texturefon);
 	fon.setPosition(0,0);
 
+	app.create_entities();
+
 	// √лавный цикл приложени€. ¬ыполн€етс€, пока открыто окно
 	while (window.isOpen())
 	{
@@ -56,20 +60,34 @@ int main()
 		{
 			// ѕользователь нажал на Ђкрестикї и хочет закрыть окно?
 			if (event.type == Event::Closed)
+			{
 				// тогда закрываем его
 				window.close();
+			}
+
+			else if (event.type == sf::Event::KeyReleased &&
+				event.key.code == sf::Keyboard::Space)
+			{
+				std::cerr << "switch\n";
+				app.Jump();
+			}
 		}
 
-		Key();
 		app.Tick();
 		// ќтрисовка окна
 		window.display();
 		window.clear({ 255, 255, 255 });
 		
 		bottle.setPosition(app.Whiskey_X, app.Whiskey_y);
+		truba1.setPosition(app.entity1.pos_x, app.entity1.pos_y);
+		truba2.setPosition(app.entity2.pos_x, app.entity2.pos_y);
+		truba3.setPosition(app.entity3.pos_x, app.entity3.pos_y);
+
 		window.draw(fon);
 		window.draw(bottle);
-		window.draw(truba);
+		window.draw(truba1);
+		window.draw(truba2);
+		window.draw(truba3);
 
 		bottle.setRotation(app.Whiskey_angle);
 	}
