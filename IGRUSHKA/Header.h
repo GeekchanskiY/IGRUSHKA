@@ -39,7 +39,7 @@ public:
 			acceleration -= 10;
 		}
 		if (acceleration == 0) {
-			acceleration = -20;
+			acceleration = -14;
 			std::cout << "IM FALLING AAAAAAA";
 		}
 		Whiskey_y -= acceleration;
