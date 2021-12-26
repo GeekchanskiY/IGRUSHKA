@@ -27,10 +27,10 @@ int main()
 	window.setFramerateLimit(60);
 
 	//загрузка картинки преграды
-	barrier.loadFromFile("bochka2.png");
-	texturefon.loadFromImage(barrier);
+	barrier.loadFromFile("bochki.png");
+	texturetruba.loadFromImage(barrier);
 	truba.setTexture(texturetruba);
-	truba.setPosition(0, 0);
+	truba.setPosition(250, -300);
 
 	//загрузка картинки бутылки
 	wiskey.loadFromFile("wiskey.png");
