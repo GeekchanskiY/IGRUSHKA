@@ -16,9 +16,8 @@ public:
 		void tick_move(int Whiskey_y) {
 			pos_x -= 5;
 			if (pos_x >= 100 && pos_x <= 280) {
-				std::cout << "I CAN KILL WOAHAHAHAH \n";
-				if (Whiskey_y >= 650 -(pos_y + 100) || Whiskey_y <= 650 -(pos_y - 100)) {
-					std::cout << "\n" << pos_y + 100 << "\n" << pos_y - 100 << "\n" << Whiskey_y;
+				if (Whiskey_y <= (550 + pos_y) || Whiskey_y >= (750 + pos_y)) {
+					std::cout << "DEAD \n";
 				}
 			}
 			if (pos_x <= -200) {
