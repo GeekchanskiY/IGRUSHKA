@@ -17,7 +17,7 @@ public:
 			pos_x -= 5;
 			if (pos_x >= 100 && pos_x <= 280) {
 				std::cout << "I CAN KILL WOAHAHAHAH \n";
-				if (Whiskey_y <= -(pos_y + 100) || Whiskey_y >= -(pos_y - 100)) {
+				if (Whiskey_y >= 650 -(pos_y + 100) || Whiskey_y <= 650 -(pos_y - 100)) {
 					std::cout << "\n" << pos_y + 100 << "\n" << pos_y - 100 << "\n" << Whiskey_y;
 				}
 			}
