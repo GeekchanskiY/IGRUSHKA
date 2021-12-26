@@ -3,8 +3,13 @@
 #include <stdio.h>
 #include <time.h>
 #include <Windows.h>
+#include "Header.h"
 
-using namespace sf;
+int main() {
+    APP app;
+    app.Tick();
+}
+/*using namespace sf;
 
 const int Width = 780;
 const int Height = 900;
@@ -57,4 +62,4 @@ void Key() {
     if (Keyboard::isKeyPressed(Keyboard::Space)) {
         sprite.move(Speed, 0);
     }
-}
+}*/
