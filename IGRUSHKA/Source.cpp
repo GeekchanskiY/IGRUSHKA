@@ -21,9 +21,9 @@ Image wiskey, kristal, barrier;
 Texture texture, texturefon, texturetruba;
 Sprite bottle, truba, fon;
 
+
 int main()
 {
-	APP app;
 	window.setFramerateLimit(60);
 
 	//загрузка картинки бутылки
@@ -63,7 +63,8 @@ int main()
 		// Отрисовка окна
 		window.display();
 		window.clear({ 255, 255, 255 });
-
+		
+		bottle.setPosition(app.Whiskey_X, app.Whiskey_y);
 		window.draw(fon);
 		window.draw(bottle);
 	}
@@ -73,6 +74,6 @@ int main()
 
 void Key() {
 	if (Keyboard::isKeyPressed(Keyboard::Space)) {
-		bottle.move(Speed, 0);
+		app.Jump();
 	}
 }
