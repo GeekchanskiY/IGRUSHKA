@@ -36,11 +36,11 @@ public:
 
 	void Tick() {
 		if (acceleration > 0) {
-			acceleration -= 5;
+			acceleration -= 10;
 		}
 		if (acceleration == 0) {
 			acceleration = -20;
-			std:cout << "IM FALLING AAAAAAA";
+			std::cout << "IM FALLING AAAAAAA";
 		}
 		Whiskey_y -= acceleration;
 		if (Whiskey_y < 5) {
@@ -67,7 +67,7 @@ public:
 
 	void Jump() {
 
-		acceleration += 40;
+		acceleration += 60;
 		if (acceleration > 40) {
 			acceleration = 40;
 		}
