@@ -35,8 +35,12 @@ public:
 	int current_entity_last = 1;
 
 	void Tick() {
-		if (acceleration >= 0) {
-			acceleration -= 2;
+		if (acceleration > 0) {
+			acceleration -= 5;
+		}
+		if (acceleration == 0) {
+			acceleration = -20;
+			std:cout << "IM FALLING AAAAAAA";
 		}
 		Whiskey_y -= acceleration;
 		if (Whiskey_y < 5) {
@@ -57,15 +61,15 @@ public:
 		entity3.start_pos(2400);
 	}
 	void change_angle() {
-		Whiskey_angle = -acceleration * 8;
+		Whiskey_angle = -acceleration * 2;
 
 	}
 
 	void Jump() {
 
-		acceleration += 20;
-		if (acceleration > 20) {
-			acceleration = 20;
+		acceleration += 40;
+		if (acceleration > 40) {
+			acceleration = 40;
 		}
 	}
 	void INIT_ENTITIES() {
