@@ -1,5 +1,6 @@
 class APP {
 public:
+	
 	class Entity {
 	public:
 		const int width = 120, height = 2300, spacing = 650 / 5;
@@ -12,8 +13,14 @@ public:
 			pos_y = -100 - randoM_lengt;
 		}
 
-		void tick_move(int id) {
+		void tick_move(int Whiskey_y) {
 			pos_x -= 5;
+			if (pos_x >= 100 && pos_x <= 280) {
+				std::cout << "I CAN KILL WOAHAHAHAH \n";
+				if (Whiskey_y >= pos_y + 100 || Whiskey_y <= pos_y - 100) {
+					std::cout << "I KILL \n";
+				}
+			}
 			if (pos_x <= -200) {
 				die();
 				Generate_pos_y(pos_y);
@@ -38,8 +45,8 @@ public:
 		if (acceleration > 0) {
 			acceleration -= 10;
 		}
-		if (acceleration == 0) {
-			acceleration = -14;
+		if (acceleration <= 20) {
+			acceleration = -15;
 			std::cout << "IM FALLING AAAAAAA";
 		}
 		Whiskey_y -= acceleration;
@@ -50,9 +57,9 @@ public:
 			Whiskey_y = 635;
 		}
 		change_angle();
-		entity1.tick_move(1);
-		entity2.tick_move(2);
-		entity3.tick_move(3);
+		entity1.tick_move(Whiskey_y);
+		entity2.tick_move(Whiskey_y);
+		entity3.tick_move(Whiskey_y);
 		
 	}
 	void create_entities() {
