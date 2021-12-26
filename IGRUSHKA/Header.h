@@ -4,7 +4,9 @@ public:
 	public:
 		const int width = 120, height = 2300, spacing = 650 / 5;
 		int pos_x = 1400, pos_y = -325;
-
+		void start_pos(int set_pos_x) {
+			pos_x = set_pos_x;
+		}
 		void Generate_pos_y(int prev_pos) {
 			int randoM_lengt = rand() % 200 + 1;
 			int is_positive = rand() % 2 + 1;
@@ -27,8 +29,12 @@ public:
 			}
 		}
 
-		void tick_move() {
+		void tick_move(int id) {
 			pos_x -= 5;
+			if (pos_x <= -200) {
+				die();
+				Generate_pos_y(pos_y);
+			}
 		}
 		// refreshes pos x and generates new pos y
 		void die() {
@@ -57,32 +63,18 @@ public:
 			Whiskey_y = 635;
 		}
 		change_angle();
-		entity1.tick_move();
-		entity2.tick_move();
-		entity3.tick_move();
-		counter++;
-		if (counter == 360) {
-			switch (current_entity_last)
-			{
-			default:
-				break;
-			case 1:
-				entity1.die();
-				break;
-			case 2:
-				entity2.die();
-				break;
-			case 3:
-				entity3.die();
-				break;
-			}
-			counter = 0;
-
-		}
+		entity1.tick_move(1);
+		entity2.tick_move(2);
+		entity3.tick_move(3);
+		
 	}
-
+	void create_entities() {
+		entity1.start_pos(1400);
+		entity2.start_pos(1800);
+		entity3.start_pos(2200);
+	}
 	void change_angle() {
-		Whiskey_angle = -acceleration * 5;
+		Whiskey_angle = -acceleration * 8;
 
 	}
 
@@ -92,7 +84,6 @@ public:
 		if (acceleration > 10) {
 			acceleration = 10;
 		}
-		std::cout << acceleration;
 	}
 	void INIT_ENTITIES() {
 		entity1.Generate_pos_y(-325);
