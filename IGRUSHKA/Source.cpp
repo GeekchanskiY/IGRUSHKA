@@ -56,49 +56,49 @@ int main()
 	// Главный цикл приложения. Выполняется, пока открыто окно
 	while (window.isOpen())
 	{
+		app.Tick();
+
 		// Обрабатываем очередь событий в цикле
 		Event event;
 		while (window.pollEvent(event))
 		{
 			// Пользователь нажал на «крестик» и хочет закрыть окно?
-			if (event.type == Event::Closed || app.IsAlive == false)
-			{
+			if (event.type == Event::Closed)
+			{ 
 				// тогда закрываем его
 				window.close();
 			}
 			//отслеживание отжатия
-			else if (event.type == sf::Event::KeyReleased &&
+			else if (event.type == sf::Event::KeyReleased && 
 				event.key.code == sf::Keyboard::Space)
 			{
 				app.Jump();
 			}
 		}
 
-		app.Tick();
-		// Отрисовка окна
-		window.display();
-		window.clear({ 255, 255, 255 });
-		presscounter += 1;
+		if (app.IsAlive) {
+			window.display();
+			presscounter += 1;
 
-		if (presscounter == 300) {
-			presscounter = 0;
-			speed++;
-			window.setFramerateLimit(speed);
-			std::cout << speed;
+			if (presscounter == 300) {
+				presscounter = 0;
+				speed++;
+				window.setFramerateLimit(speed);
+			}
+
+			bottle.setPosition(app.Whiskey_X, app.Whiskey_y);
+			truba1.setPosition(app.entity1.pos_x, app.entity1.pos_y);
+			truba2.setPosition(app.entity2.pos_x, app.entity2.pos_y);
+			truba3.setPosition(app.entity3.pos_x, app.entity3.pos_y);
+
+			window.draw(fon);
+			window.draw(bottle);
+			window.draw(truba1);
+			window.draw(truba2);
+			window.draw(truba3);
+
+			bottle.setRotation(app.Whiskey_angle);
 		}
-		
-		bottle.setPosition(app.Whiskey_X, app.Whiskey_y);
-		truba1.setPosition(app.entity1.pos_x, app.entity1.pos_y);
-		truba2.setPosition(app.entity2.pos_x, app.entity2.pos_y);
-		truba3.setPosition(app.entity3.pos_x, app.entity3.pos_y);
-
-		window.draw(fon);
-		window.draw(bottle);
-		window.draw(truba1);
-		window.draw(truba2);
-		window.draw(truba3);
-
-		bottle.setRotation(app.Whiskey_angle);
 	}
 
 	return 0;
